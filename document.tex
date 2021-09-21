@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ, caption}
+\graphicspath{ {./Figures/} }
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+}
+
+
+\pagestyle{fancy}
+
+
+\newenvironment{problem}[2][Problem]
+{ \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+	{  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+{\textit{Proof:}}
+{}
+
+\renewcommand{\qed}{\quad\qedsymbol}
+
+% prevent line break in inline mode
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{M. Farouk HASNAOUI}
+\rhead{Analyse numérique} 
+\chead{\textbf{Méthode des différences finies}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	\begin{mdframed}[backgroundcolor=blue!20]
+		This exercises is writing by Prf. Kamel MEFTAH, University of Biskra, and M.Farouk HASNAOUI National Polytechnic School of Algiers.
+	\end{mdframed}
+
+\begin{problem}{1}
+	\textcolor{blue}{Différences finies pour les ODEs} \\
+	Considérons le problème aux limites suivant :
+	\begin{equation*}
+		y^{''}(x) - \Bigr(1-\frac{x}{5}\Bigr)y(x) = x
+		\end{equation*}
+	avec $y(1) = 2$ et $y(3) = 1$ \\
+	
+	$\bullet$ Trouver les valeurs approximation de y aux points : $x_1$ = 1.5, $x_2$ = 2 et $x_3$ = 2.5 
+	\end{problem}
+
+\begin{problem}{2}
+	\textcolor{blue}{Classification des EDPs} \\
+	Trouver le type de ces EDPs :
+	\begin{eqnarray*}
+		\frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2} &=& 0 \\
+		\frac{\partial^2u}{\partial x^2} &=& \frac{1}{c^2} \frac{\partial^2u}{\partial t^2} \\
+		\frac{\partial^2u}{\partial x^2} &=& \frac{1}{\alpha}\frac{\partial u}{\partial t} \\
+		\frac{\partial^2\psi}{\partial x^2} + \frac{\partial^2\psi}{\partial y^2} &=& -4\pi\rho \\
+		\frac{\partial u}{\partial t} + \alpha\frac{\partial u}{\partial x} &=& 0 \\
+		\frac{\partial^2\psi}{\partial x^2} &=& \frac{1}{c^2}\frac{\partial^2\psi}{\partial t^2} - \frac{\rho}{\epsilon} \\
+		\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} &=& 0
+		\end{eqnarray*}
+\end{problem}
+
+\begin{problem}{3}
+	\textcolor{blue}{Résolution des EDPs éliptiques (Cas simple)} \\
+	Soit l'équation de Laplace suivante :
+	\begin{equation*}
+		\frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2} = 0
+	\end{equation*}
+	avec le maillage (Fig. \ref{maillage_Laplace})
+	
+	$\bullet$ Résoudre cette EDP utilisant la méthode des différences finies.
+\end{problem}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=.45\textwidth, height=.3\textheight]{maillage_Laplace.png}
+	\caption{Le maillage de la problème 3.}\label{maillage_Laplace}
+	\end{figure}
+\newpage
+
+\begin{problem}{4}
+	\textcolor{blue}{Résolution des EDPs éliptiques} \\
+	Soit l'équation de Poisson en 2D (x, y) suivante :
+	\begin{equation*}
+		\Delta T = \sin{x} + T
+		\end{equation*}
+	avec les conditions aux limites suivantes :
+	\begin{eqnarray*}
+		\varphi(y = 0) &=& 2 \\
+		\varphi(x = 0) &=& \varphi_{\text{convection}} \\
+		T(x = L) &=& \sin{(\pi y^2)} 
+		\end{eqnarray*}
+	
+	$\bullet$ Résoudre cette EDP utilisant la méthode des différences finies, si : \\
+	Il y'a une symétrie á : y = H = $\frac{1}{2}$, L = 1, h = $\Delta x$ = $\frac{1}{2}$, et h = $\Delta y$ = $\frac{1}{4}$.
+\end{problem}
+
+\begin{problem}{5}
+	\textcolor{blue}{Résolution des EDPs paraboliques} \\
+	Résoudre l'EDP suivante :
+	\begin{equation*}
+		u_t = u_{xx}
+	\end{equation*}
+avec : $0 \leq x \leq 1$, $u(x,0) = \sin{(\pi x)}$, h=1/3, k=1/18, et $\Delta t = 1/6$
+\end{problem}
+
+\end{document}
